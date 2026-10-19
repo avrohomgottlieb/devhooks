@@ -1,0 +1,12 @@
+- id: docstring-check
+  name: docstring freshness check
+  description: >-
+    Post-commit check for Python docstrings left stale by the commit just
+    made. Uses Claude (via sbx) read-only to detect staleness; any accepted
+    replacement is written to the working tree only, never staged or
+    committed. See docstring_check/hook.py.
+  entry: docstring_check/hook.py
+  language: script
+  stages: [post-commit]
+  pass_filenames: false
+  verbose: true
